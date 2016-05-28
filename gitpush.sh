@@ -1,9 +1,10 @@
 #!/bin/sh
-cd /etc
 pwd
-sudo git add .
+echo -n "Enter the directory name that you want to commit: "
+read path
+cd "$path"
+git add .
 echo -n "Enter commit message : "
 read ans
-sudo etckeeper commit "$ans"
-sudo git push -u origin master
-cd $HOME
+git commit -m "$ans"
+git push -u origin master
